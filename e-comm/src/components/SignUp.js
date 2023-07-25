@@ -15,7 +15,7 @@ const SignUp=()=> {
 
       const collectData= async()=>{
         console.warn(name,email,password);
-        let result = await fetch('http://localhost:3002/post',{
+        let result = await fetch('https://e-commerce-app-dggw.onrender.com/post',{
           method:'POST',
           body: JSON.stringify({name,email,password}),
           headers:{

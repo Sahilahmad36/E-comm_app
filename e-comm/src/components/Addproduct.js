@@ -20,7 +20,7 @@ const Addproduct=()=> {
 
        
         const userId=JSON.parse(localStorage.getItem('user'))._id;
-        let result=await fetch('http://localhost:3002/addproduct',{
+        let result=await fetch('https://e-commerce-app-dggw.onrender.com/addproduct',{
           method:'post',
           body:JSON.stringify({name,price,category,company,userId}),
           headers:{

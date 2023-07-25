@@ -15,7 +15,7 @@ const Updateproduct=()=> {
     
     const getProductDetails=async ()=>{
       console.warn(params)
-        let result =await fetch(`http://localhost:3002/product/${params.id}`,
+        let result =await fetch(`https://e-commerce-app-dggw.onrender.com/product/${params.id}`,
         {
           headers:{
             authorization:`bearer ${JSON.parse(localStorage.getItem('token'))}`
@@ -31,7 +31,7 @@ const Updateproduct=()=> {
 
     const UpdateProduct=async()=>{
    console.warn(name,price,category,company)
-       let result= await fetch(`http://localhost:3002/product/${params.id}`,{
+       let result= await fetch(`https://e-commerce-app-dggw.onrender.com/product/${params.id}`,{
         method:'Put',
         body:JSON.stringify({name,price,category,company}),
         headers:{

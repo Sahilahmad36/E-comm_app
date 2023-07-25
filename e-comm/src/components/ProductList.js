@@ -7,7 +7,7 @@ const ProductList=()=> {
    },[])
 
    const getProducts= async ()=>{
-   let result=await fetch('http://localhost:3002/products',{
+   let result=await fetch('https://e-commerce-app-dggw.onrender.com/products',{
     headers:{
       authorization:`bearer ${JSON.parse(localStorage.getItem('token'))}`
     }
@@ -18,7 +18,7 @@ const ProductList=()=> {
  
 
   const deleteProduct=async (id)=>{
-     let result =await fetch(`http://localhost:3002/product/${id}`,{
+     let result =await fetch(`https://e-commerce-app-dggw.onrender.com/product/${id}`,{
      method:"delete",
      headers:{
       authorization:`bearer ${JSON.parse(localStorage.getItem('token'))}`
@@ -34,7 +34,7 @@ const ProductList=()=> {
 const searchHandle=async (event)=>{
    let key=event.target.value;
    if(key){
-    let result= await fetch(`http://localhost:3002/search/${key}`,{
+    let result= await fetch(`https://e-commerce-app-dggw.onrender.com/search/${key}`,{
       headers:{
         authorization:`bearer ${JSON.parse(localStorage.getItem('token'))}`
       }
@@ -66,7 +66,7 @@ const searchHandle=async (event)=>{
       </tr>
       
       {
-       products.map((item,index)=>
+      products.length>0 ? products.map((item,index)=>
     <tr key={item._id} >
         <td>{index+1}</td>
         <td>{item.name}</td>
@@ -77,9 +77,10 @@ const searchHandle=async (event)=>{
         
         <Link to={"/update/"+item._id}>Update</Link>
         </td>
+      
     </tr>
        )
-    
+       : <h1>No product found</h1>
       } 
       
       </table>

@@ -14,7 +14,7 @@ const Login=()=> {
 
    const handlelogin=async ()=>{
     console.warn("email,password",email, password);
-    let result= await fetch('http://localhost:3002/login',{
+    let result= await fetch('https://e-commerce-app-dggw.onrender.com/login',{
         method:'post',
         body:JSON.stringify({email,password}),
         headers:{
